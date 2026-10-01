@@ -1,3 +1,11 @@
+<script>
+
+</script>
+
+
+
+
+
 <template>
   <div id="app">
     <nav>
@@ -7,14 +15,23 @@
     </nav>
 
     <router-view />
+
   </div>
+
+  <section>
+  </section>
+
+
+
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
-</script>
+
+
+
+
+
+
+
 
 <style>
 nav {
