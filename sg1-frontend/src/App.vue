@@ -1,11 +1,6 @@
 <script>
-
+let sauvegarde = 0;
 </script>
-
-
-
-
-
 <template>
   <div id="app">
     <nav>
@@ -13,6 +8,7 @@
       <router-link to="/jeu">Jeu</router-link>
 
     </nav>
+    <Accueil />
 
     <router-view />
 
@@ -24,32 +20,3 @@
 
 
 </template>
-
-
-
-
-
-
-
-
-
-<style>
-nav {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-}
-
-router-link {
-  cursor: pointer;
-  text-decoration: none;
-  color: blue;
-}
-
-router-link.router-link-active {
-  font-weight: bold;
-  color: red;
-}
-</style>
