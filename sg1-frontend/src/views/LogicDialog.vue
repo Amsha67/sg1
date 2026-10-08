@@ -21,6 +21,8 @@ const dialogues = {
     "dialogue4": "Et voici un autre dialogue pour tester le découpage en morceaux. Il est encore plus long que le précédent, et il contient beaucoup de mots pour vérifier que le découpage fonctionne correctement. Nous allons voir si tout s'affiche bien dans la boîte de dialogue."
 }
 
+
+
 // on coupe les dialogues trop longs en morceaux de 70 caracteres max
 const morceaux = []
 

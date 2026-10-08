@@ -5,5 +5,5 @@
 
 <template>
 
-    <dialogue></dialogue>
+    <!-- <dialogue></dialogue> -->
 </template>
