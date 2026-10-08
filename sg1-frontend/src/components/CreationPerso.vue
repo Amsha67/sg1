@@ -1,24 +1,33 @@
-<script>
+<script setup>
 import { ref, computed } from 'vue'
 
 
 const nomPerso = ref("")
 const regexInterdit = /[^A-Za-zÀ-ÿ\s\-]/ //si ce ne sont pas des lettres, espace ou tiret , c'est interdit
 const nomVide = ""
-var deguisement = ref(0)
+
 const listeCostumes = ['Standard', 'Ninja', 'Magicien', 'Chevalier']
+
+const deguisement = ref(0)
 
 function suivant() {
     deguisement.value += 1
-    if (deguisement.value === listeCostumes.length)
+
+    if (deguisement.value === listeCostumes.length) {
         deguisement.value = 0
+    }
+    console.log(deguisement.value, listeCostumes[deguisement.value])
+}
+function precedent() {
+    deguisement.value -= 1
+
+    // SI on descend en dessous de zéro (index -1)
+    if (deguisement.value === -1) {
+        deguisement.value = listeCostumes.length - 1
+    }
+    console.log(deguisement.value, listeCostumes[deguisement.value])
 }
 
-function precedent() {
-    deguisement.value - 1
-    if (deguisement.value === listeCostumes.length - 1)
-        deguisement.value = listeCostumes.length
-}
 
 // nom invalide si > à 15 caractères ou contient des caractères spéciaux
 const nomInvalide = computed(() => {
@@ -52,10 +61,10 @@ const boutonBloque = computed(() => {
     <h2>Déguissement</h2>
 
     <button class="precedent" @click="precedent">Précédent</button>
-    <p></p>
+    <!-- <p>{{ listeCostumes[deguisement.value] }}</p> -->
     <button class="suivant" @click="suivant">Suivant</button>
     <br>
-    <button clas="creeperso" :disabled="boutonBloque">Créer le personnage</button>
+    <button class="creeperso" :disabled="boutonBloque">Créer le personnage</button>
 
 
 
