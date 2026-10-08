@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 let sauvegarde = ref(0);
-console.log("test", sauvegarde.value);
+console.log("test sauvegarde = ", sauvegarde.value);
 
 function play() {
     sauvegarde.value = 1;

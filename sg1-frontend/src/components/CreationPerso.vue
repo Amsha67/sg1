@@ -45,6 +45,8 @@ const boutonBloque = computed(() => {
 
 })
 
+console.log("test1", listeCostumes[deguisement.value])
+console.log("test2", listeCostumes[deguisement])
 
 </script>
 
@@ -61,7 +63,7 @@ const boutonBloque = computed(() => {
     <h2>Déguissement</h2>
 
     <button class="precedent" @click="precedent">Précédent</button>
-    <!-- <p>{{ listeCostumes[deguisement.value] }}</p> -->
+    <p>{{ listeCostumes[deguisement] }}</p>
     <button class="suivant" @click="suivant">Suivant</button>
     <br>
     <button class="creeperso" :disabled="boutonBloque">Créer le personnage</button>
