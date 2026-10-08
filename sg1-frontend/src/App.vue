@@ -1,22 +1,15 @@
-<script>
-let sauvegarde = 0;
+<script setup>
+
 </script>
+
 <template>
   <div id="app">
     <nav>
       <router-link to="/">Accueil</router-link>
       <router-link to="/jeu">Jeu</router-link>
-
     </nav>
-    <Accueil />
 
+    <!-- Gère l'affichage des pages -->
     <router-view />
-
   </div>
-
-  <section>
-  </section>
-
-
-
 </template>

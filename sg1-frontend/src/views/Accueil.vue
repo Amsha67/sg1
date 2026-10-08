@@ -1,12 +1,38 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+
+const router = useRouter()
 
 let sauvegarde = ref(0);
 console.log("test", sauvegarde.value);
 
 function play() {
     sauvegarde.value = 1;
+
+    // Logique de redirection : on pousse le joueur vers la route nommée 'Jeu'
+    router.push({ name: 'Jeu' })
 }
+
+function options() {
+    // Logique pour ouvrir les options plus tard
+}
+
+function load() {
+    console.log("Chargement de la partie...");
+
+    router.push({ name: 'Jeu' })
+}
+
+const boutonBloque = computed(() => {
+    if (sauvegarde.value === 0) {
+        return true
+    }
+
+    else return false
+})
+
 
 
 </script>
@@ -24,7 +50,7 @@ function play() {
     </section>
 
     <section id="menusave" v-else>
-        <button class="continuer" @click="load">Continuer</button>
+        <button :disabled="boutonBloque" class="continuer" @click="load">Continuer</button>
         <button class="newgame" @click="play">Nouvelle partie</button>
 
     </section>
