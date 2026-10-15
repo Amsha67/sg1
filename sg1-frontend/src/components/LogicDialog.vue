@@ -14,13 +14,10 @@ import { ref, onMounted } from 'vue'
 import { joueurService } from '../services/joueur.js'
 
 const canva = ref(null)
-const joueur = joueurService.charger(
-    nomPerso,
-    deguisement
-)
+const joueur = joueurService.charger()
 
 const dialogues = [
-    "Bonjour, je suis " + joueurService.nomPerso + "  dialogue dans le jeu !",
+    "Bonjour, je suis " + joueur.nom + "  j'ai décider de devenir un(e) " + joueur.costume + "!",
     "Ce dialogue est beaucoup plus long que les autres, il ne tient pas dans la boîte alors il est coupé en plusieurs morceaux.",
     "Voilà, un autre dialogue.",
     "Et voici un autre dialogue pour tester le découpage en morceaux. Il est encore plus long que le précédent, et il contient beaucoup de mots pour vérifier que le découpage fonctionne correctement. Nous allons voir si tout s'affiche bien dans la boîte de dialogue."
