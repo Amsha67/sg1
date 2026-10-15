@@ -1,7 +1,10 @@
 <script setup>
+
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { joueurService } from '../services/joueur.js'
 
-
+const router = useRouter()
 const nomPerso = ref("")
 const regexInterdit = /[^A-Za-zÀ-ÿ\s\-]/ //si ce ne sont pas des lettres, espace ou tiret , c'est interdit
 const nomVide = ""
@@ -9,6 +12,16 @@ const nomVide = ""
 const listeCostumes = ['Standard', 'Ninja', 'Magicien', 'Chevalier']
 
 const deguisement = ref(0)
+
+function creerPersonnage() {
+    joueurService.sauvegarder(nomPerso.value, listeCostumes[deguisement.value])
+    console.log('Après sauvegarde')
+    console.log(localStorage.getItem('nomPerso'))
+    console.log(localStorage.getItem('deguisement'))
+    router.push('/prologue')
+
+}
+
 
 function suivant() {
     deguisement.value += 1
@@ -66,8 +79,6 @@ console.log("test2", listeCostumes[deguisement])
     <p>{{ listeCostumes[deguisement] }}</p>
     <button class="suivant" @click="suivant">Suivant</button>
     <br>
-    <button class="creeperso" :disabled="boutonBloque">Créer le personnage</button>
-
-
+    <button class="creeperso" :disabled="boutonBloque" @click="creerPersonnage">Créer le personnage</button>
 
 </template>

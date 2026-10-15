@@ -11,8 +11,10 @@ console.log("test sauvegarde = ", sauvegarde.value);
 function play() {
     sauvegarde.value = 1;
 
-    // Logique de redirection : on pousse le joueur vers la route nommée 'Jeu'
-    router.push({ name: 'Jeu' })
+    // Logique de redirection : on pousse le joueur vers la route nommée 'prologue'
+    router.push({
+        name: 'Creation'
+    })
 }
 
 function options() {
@@ -22,7 +24,7 @@ function options() {
 function load() {
     console.log("Chargement de la partie...");
 
-    router.push({ name: 'Jeu' })
+    router.push({ name: 'Prologue' })
 }
 
 const boutonBloque = computed(() => {
@@ -40,8 +42,6 @@ const boutonBloque = computed(() => {
 <template>
 
     <h1 id="titreacceuil">Acceuil test</h1>
-
-
 
     <section id="menu1" v-if="sauvegarde == 0">
         <h1>SMECTA</h1>
